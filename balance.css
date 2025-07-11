@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+}
+
+h1 {
+    font-size: 2.5rem; /* Slightly larger */
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Table Container Styling */
+.container {
+    width: 90%;  /* Increased width slightly */
+    max-width: 1100px; /* Increased max width */
+    margin: 0 auto;   /* Center the container */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    font-size: 1.2rem; /* Make text larger but not too big */
+}
+
+table th, table td {
+    padding: 15px; /* More padding for better spacing */
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #628B35;
+    color: white;
+    font-size: 1.3rem; /* Slightly larger headings */
+}
+
+table td {
+    background-color: #fff;
+}
+
+/* Hover Effect for Table Rows */
+table tr:hover {
+    background-color: #f2f2f2;
+}

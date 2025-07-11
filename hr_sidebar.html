@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave System Sidebar</title>
+    <link rel="stylesheet" type="text/css" href="hrsidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="menu-icon" id="menu-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="sidebar-content">
+        <ul>
+            <li><a href="hr_dashboard.php" id="show-dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="manage_leave.php" id="show-profile"><i class="fas fa-file-signature"></i> Leave Management</a></li>
+            <li><a href="hrleave_calendar.php" id="show-faculties"><i class="fas fa-calendar"></i> Leave Calendar</a></li>
+            <li><a href="employeemanagement.php" id="show-evaluate"><i class="fas fa-users"></i> Employee Management</a></li>
+            <li>
+                <a href="#" id="show-logout">
+                    <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    <script src="sidebar.js"></script>
+</body>
+</html>

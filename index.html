@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Evaluation System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sign-Up Form -->
+        <div class="signup-container" id="signup-container">
+            <h1>Create New Account </h1>
+            <p>Already Registered? <a href="#" class="show-login">Log in here.</a></p>
+            <form action="signup.php" method="post">
+                <label for="name">NAME</label>
+                <input type="text" id="name" name="name" placeholder="LAST NAME, FIRST NAME, MI." required>
+                
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email" placeholder="example@cvsu.edu.ph" required>
+                
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="password" placeholder="***********" required>
+                
+                <label for="role">STUDENT/PROFESSOR</label>
+                <select id="role" name="role" required>
+                    <option value="" disabled selected>SELECT</option>
+                    <option value="student">Student</option>
+                    <option value="professor">Professor</option>
+                </select>
+                <button type="submit" name="submit">Sign Up</button>
+            </form>
+        </div>
+        
+        <!-- Login Form -->
+        <div class="login-container" id="login-container" style="display: none;">
+            <h1>Log In</h1>
+            <p>Sign in to continue.</p>
+            <form action="login.php" method="post">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email" placeholder="example@cvsu.edu.ph" required>
+                
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="password" placeholder="***********" required>
+                
+                <button type="submit" name="submit">Log In</button>
+                <a href="#" class="show-forpass">Forgot Password</a>
+                <a href="#" class="show-signup">Sign up</a>
+            </form>
+        </div>
+        
+        <!-- Forgot Password Form -->
+        <div class="forpass-container" id="forpass-container" style="display: none;">
+            <h1>Forgot Password</h1>
+            <p>Generate new password.</p>
+            <form action="forpass.php" method="post">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email" placeholder="example@cvsu.edu.ph" required>
+                
+                <button type="submit" name="submit">Send</button>
+                <a href="#" class="show-login-forpass">Log in</a>
+                <a href="#" class="show-signup-forpass">Sign up</a>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.show-signup')?.addEventListener('click', function (event) {
+                event.preventDefault();
+                switchForm('signup');
+            });
+
+            document.querySelector('.show-login')?.addEventListener('click', function (event) {
+                event.preventDefault();
+                switchForm('login');
+            });
+
+            document.querySelector('.show-forpass')?.addEventListener('click', function (event) {
+                event.preventDefault();
+                switchForm('forpass');
+            });
+        });
+
+        function switchForm(form) {
+            document.getElementById('signup-container').style.display = form === 'signup' ? 'block' : 'none';
+            document.getElementById('login-container').style.display = form === 'login' ? 'block' : 'none';
+            document.getElementById('forpass-container').style.display = form === 'forpass' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

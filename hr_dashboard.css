@@ -1,0 +1,128 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #fffdf5;
+}
+
+/* Main Content */
+#main-content {
+    margin-left: 250px;
+    padding: 30px;
+    width: calc(100% - 250px);
+}
+
+h1 {
+    color: #103713;
+    font-size: 45px;
+}
+
+/* Divider Line */
+.divider {
+    border: 0;
+    height: 3px;
+    background-color: #a9afa1;
+    margin: 20px 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+/* Button Styling for Anchor Tags */
+a.btn {
+    background-color: #628b35;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+
+a.btn:hover {
+    background-color: #4b6d27;
+}
+
+/* Dashboard Content */
+#dashboard-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Leave Management Table */
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.leave-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.leave-table th,
+.leave-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.leave-table th {
+    background-color: #103713;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.leave-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Prompt Styling */
+.prompt {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style for the View Details Anchor (Button) */
+.leave-table .view-details {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 8px 16px; /* Padding around the text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    display: inline-block; /* Align as inline-block */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color change on hover */
+}
+
+/* Hover Effect */
+.leave-table .view-details:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Optional: Style the Action column to center the buttons */
+.leave-table td:last-child {
+    text-align: center;
+}

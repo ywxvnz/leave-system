@@ -1,0 +1,166 @@
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    background-color: #103713;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* Form and Input Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    align-self: flex-start;
+    margin: 5px 0 2px;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.input-control {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) */
+    box-sizing: border-box;
+}
+
+.input-control input,
+.input-control select,
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.85em;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    padding-top: 2px;
+    text-align: left;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+/* Link Styles */
+a {
+    color: #000;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 0.95em;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styles */
+button {
+    background-color: #628B35;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 1px;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #8fc852;
+}
+
+/* Specific Container Styles */
+.signup-container, .login-container, .forpass-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: none;
+}
+
+.signup-container {
+    display: block;
+}
+
+.form-container h1, p {
+    text-align: center;
+}
+
+.signup-container h1,
+.login-container h1,
+.forpass-container h1 {
+    margin-bottom: 10px; /* Adjust margin-bottom for h1 */
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.signup-container p,
+.login-container p,
+.forpass-container p {
+    margin-top: 5px; /* Adjust margin-top for p */
+    font-size: 0.9em;
+    color: #555;
+}
+
+a {
+    cursor: pointer; /* Ensure the links are clickable */
+}
+
+/* Employee Profile Specific Styles */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-control input[disabled] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.success-message {
+    color: green;
+    font-size: 0.9em;
+    text-align: center;
+}
