@@ -6,12 +6,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh; /* Full height of the viewport */
-    position: fixed; /* Fixed position to stick to the side */
+    height: 100vh; 
+    position: fixed;
     left: 0;
     top: 0;
-    transition: width 0.3s; /* Transition effect for width change */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */    
+    transition: width 0.3s; 
+    overflow-y: auto;   
 }
 
 .sidebar.collapsed {
@@ -34,7 +34,7 @@
 
 .sidebar-content {
     width: 100%;
-    padding-top: 20px; /* Adjust content padding */
+    padding-top: 20px;
 }
 
 .sidebar-content ul {

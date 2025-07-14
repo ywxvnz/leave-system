@@ -15,6 +15,5 @@ document.getElementById('leave-balance-btn').addEventListener('click', function(
 });
 
 document.getElementById("file-leave-form").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent form submission and page reload
-  // Add code here to handle the form submission (AJAX or validation)
+  event.preventDefault(); 
 });

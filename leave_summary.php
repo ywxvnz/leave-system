@@ -1,38 +1,32 @@
 <?php
 session_start();
 
-// If the session is not set, redirect to login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Prevent caching of the page
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 $servername = "localhost";
-$username = "root";  // Replace with your database username
-$password = "";      // Replace with your database password
-$dbname = "leavemanagementsystem";  // Replace with your database name
+$username = "root";  
+$password = "";    
+$dbname = "leavemanagementsystem";  
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
     die("Error: User not logged in. Please log in first.");
 }
 
-// Fetch leave requests for the logged-in user
 $users_id = $_SESSION['user_id'];
 
-// Ensure column name matches database schema
 $query = "
     SELECT 
         lr.start_date, 

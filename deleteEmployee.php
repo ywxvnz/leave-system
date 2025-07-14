@@ -7,18 +7,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $employee_id = intval($_POST['employee_id']);
 
-    // Database connection
     $conn = new mysqli("localhost", "root", "", "leavemanagementsystem");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Start transaction
-    $conn->autocommit(false); // Disable autocommit
+    $conn->autocommit(false); 
 
     try {
-        // Get user_id associated with the employee
         $checkStmt = $conn->prepare("SELECT user_id FROM employees WHERE employee_id = ? FOR UPDATE");
         $checkStmt->bind_param("i", $employee_id);
         $checkStmt->execute();
@@ -26,41 +23,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($result->num_rows === 0) {
             echo "Error: Employee not found";
-            $conn->rollback(); // Rollback transaction
+            $conn->rollback(); 
             exit;
         }
 
         $row = $result->fetch_assoc();
-        $user_id = $row['user_id']; // Store the user_id
+        $user_id = $row['user_id']; 
 
         $checkStmt->close();
 
-        // Delete employee
         $deleteEmployeeStmt = $conn->prepare("DELETE FROM employees WHERE employee_id = ?");
         $deleteEmployeeStmt->bind_param("i", $employee_id);
 
         if ($deleteEmployeeStmt->execute()) {
-            // Now delete the user from the users table
             $deleteUserStmt = $conn->prepare("DELETE FROM users WHERE id = ?");
             $deleteUserStmt->bind_param("i", $user_id);
 
             if ($deleteUserStmt->execute()) {
-                $conn->commit(); // Commit transaction
+                $conn->commit(); 
                 echo "Success";
             } else {
-                $conn->rollback(); // Rollback if deleting user fails
+                $conn->rollback(); 
                 echo "Error: Unable to delete user";
             }
 
             $deleteUserStmt->close();
         } else {
-            $conn->rollback(); // Rollback if deleting employee fails
+            $conn->rollback(); 
             echo "Error: Unable to delete employee";
         }
 
         $deleteEmployeeStmt->close();
     } catch (Exception $e) {
-        $conn->rollback(); // Rollback in case of error
+        $conn->rollback(); 
         echo "Error: " . $e->getMessage();
     }
 

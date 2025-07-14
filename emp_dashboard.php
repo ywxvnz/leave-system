@@ -1,19 +1,15 @@
 <?php
-// Start the session
 session_start();
 
-// If the session is not set, redirect to login
 if (!isset($_SESSION['user_id'])) {
   header("Location: login.php");
   exit();
 }
 
-// Prevent caching of the page
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-// Redirect to login.php if the user is not logged in
 if (!isset($_SESSION['user_id'])) {
   header("Location: login.php");
   exit();

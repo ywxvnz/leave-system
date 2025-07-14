@@ -1,28 +1,23 @@
 <?php
-// Start session
 session_start();
 
-// Database connection
 $servername = "localhost";
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "leavemanagementsystem"; // Replace with your database name
+$username = "root"; 
+$password = "";
+$dbname = "leavemanagementsystem"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     die("Error: Unauthorized access. Please log in.");
 }
 
 $user_id = $_SESSION['user_id'];
 
-// Fetch user's full name from the database
 $user_full_name = "";
 $sql = "SELECT username FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
@@ -100,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Delete other merged leave requests (except the one we updated)
         $merged_ids = array_column($existing_requests, 'leave_request_id');
-        array_shift($merged_ids); // Remove the first one since we updated it
+        array_shift($merged_ids); // Remove the first one since it is updated
 
         if (!empty($merged_ids)) {
             $placeholders = implode(',', array_fill(0, count($merged_ids), '?'));
@@ -317,7 +312,7 @@ $conn->close();
             }
 
             function updateDateRestrictions() {
-                const selectedLeaveID = leaveTypeInput.value; // Get selected leave ID
+                const selectedLeaveID = leaveTypeInput.value; 
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
 
@@ -354,10 +349,9 @@ $conn->close();
 
             updateDateRestrictions(); 
 
-            // Handle form submission via AJAX
             const form = document.getElementById("file-leave-form");
             form.addEventListener("submit", function (e) {
-                e.preventDefault(); // Prevent the default form submission
+                e.preventDefault(); 
 
                 const formData = new FormData(form);
 
@@ -367,10 +361,9 @@ $conn->close();
                 })
                 .then(response => response.json())
                 .then(data => {
-                    showModal(data.message); // Show message in modal
+                    showModal(data.message); 
                     if (data.status === "success") {
-                        form.reset(); // Reset the form
-                    }
+                        form.reset(); 
                 })
                 .catch(error => {
                     console.error("Error:", error);
@@ -378,14 +371,12 @@ $conn->close();
                 });
             });
 
-            // Modal functionality
             const modal = document.getElementById("message-modal");
 
             function showModal(message) {
-                modal.textContent = message; // Set the message
-                modal.classList.add("show"); // Show the modal
+                modal.textContent = message; 
+                modal.classList.add("show");
 
-                // Hide the modal after 3 seconds
                 setTimeout(() => {
                     modal.classList.remove("show");
                 }, 3000);

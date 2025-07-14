@@ -1,18 +1,16 @@
-/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
-  background-color: #fffdf5; /* Light background color */
+  background-color: #fffdf5; 
 }
 
-/* General Styles */
 html, body {
-  height: 100%; /* Ensure both html and body elements cover the full height of the screen */
+  height: 100%; 
   margin: 0;
   padding: 0;
-  background-color: #fffdf5; /* Light background color */
+  background-color: #fffdf5; 
 }
 
 /* Main Content */
@@ -20,37 +18,37 @@ html, body {
   margin-left: 250px;
   padding: 30px;
   width: calc(100% - 250px);
-  background-color: #e2dbd0; /* Soft beige background */
+  background-color: #e2dbd0; 
 }
 
 h1 {
-  color: #103713; /* Dark green text color */
+  color: #103713; 
 }
 
 /* Action Buttons */
 .action-buttons {
   padding: top 10px;
-  display: grid; /* Use grid layout */
-  grid-template-columns: repeat(2, 1fr); /* Two buttons per row, evenly distributed */
-  gap: 20px; /* Space between buttons */
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px; 
   margin-bottom: 30px;
-  width: 100%; /* Occupy the full width of the container */
+  width: 100%;
 }
 
 /* Buttons */
 .btn {
   background-color: #628b35;
   color: #fff;
-  padding: 50px 0; /* Increase vertical padding, remove horizontal padding for full width */
+  padding: 50px 0; 
   border: none;
   cursor: pointer;
-  font-size: 22px; /* Slightly larger text size */
+  font-size: 22px;
   font-weight: bold;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
-  width: 100%; /* Make each button span the entire column */
-  text-align: center; /* Center the text inside the button */
+  width: 100%; 
+  text-align: center;
 }
 
 /* Button Hover */
@@ -63,7 +61,7 @@ h1 {
 
 /* Dashboard Content */
 #dashboard-content {
-  background-color: #fffdf5; /* Light background color */
+  background-color: #fffdf5; 
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

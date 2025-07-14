@@ -1,25 +1,21 @@
 <?php
 session_start();
 
-// If the session is not set, redirect to login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Prevent caching of the page
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-// Database Connection
 $conn = new mysqli("localhost", "root", "", "leavemanagementsystem");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch leave requests
 $sql = "SELECT name, leave_request_id, id, leave_type_id, start_date, end_date, status FROM leave_requests";
 $result = $conn->query($sql);
 
@@ -97,7 +93,7 @@ $conn->close();
 		    document.addEventListener("DOMContentLoaded", function () {
 		        const leaveRequests = <?php echo json_encode($leaveData); ?>;
 
-		        console.log(leaveRequests); // Debugging: Check data in the console
+		        console.log(leaveRequests); 
 
 		        leaveRequests.forEach(request => {
 		            highlightLeaveDays(request.start_date, request.end_date, request.status);

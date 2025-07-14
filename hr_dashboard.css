@@ -106,23 +106,22 @@ a.btn:hover {
 
 /* Style for the View Details Anchor (Button) */
 .leave-table .view-details {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    padding: 8px 16px; /* Padding around the text */
-    text-decoration: none; /* Remove underline */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 14px; /* Font size */
-    display: inline-block; /* Align as inline-block */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth background color change on hover */
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 8px 16px; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    display: inline-block; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
 }
 
 /* Hover Effect */
 .leave-table .view-details:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049; 
 }
 
-/* Optional: Style the Action column to center the buttons */
 .leave-table td:last-child {
     text-align: center;
 }

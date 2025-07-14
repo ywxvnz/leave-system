@@ -1,12 +1,12 @@
 <?php
 session_start();
-include 'db_connection.php'; // Ensure this points to the correct database connection file
+include 'db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = $_POST['password'];
 
-    // Prepare SQL statement to check the user's email
+    //check the user's email
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -155,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script>
         document.getElementById('show-signup').addEventListener('click', function(event) {
             event.preventDefault();
-            window.location.href = 'index.php'; // Redirect to sign up page
+            window.location.href = 'index.php'; 
         });
     </script>
 </body>

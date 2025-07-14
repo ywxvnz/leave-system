@@ -1,37 +1,30 @@
 <?php
-// Start session
 session_start();
 
-// If the session is not set, redirect to login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Prevent caching of the page
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-// Database connection
 $servername = "localhost";
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "leavemanagementsystem"; // Replace with your database name
+$username = "root"; 
+$password = ""; 
+$dbname = "leavemanagementsystem";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     die("Error: Unauthorized access. Please log in.");
 }
 
-// Get user ID
 $user_id = $_SESSION['user_id'];
 
 // Query to get the leave balance from the employees table
@@ -41,7 +34,7 @@ $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
-$leaves_allowed = $row['leave_balance'] ?? 30; // Default to 15 if no record found
+$leaves_allowed = $row['leave_balance'] ?? 30; 
 
 // Query to get the count of approved leave requests (past and present)
 $query_approved = "SELECT COUNT(*) AS leaves_taken 
@@ -96,9 +89,9 @@ if ($leaves_remaining < 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Leave Balance</title>
-    <link rel="stylesheet" type="text/css" href="sidebar.css"> <!-- Sidebar CSS -->
+    <link rel="stylesheet" type="text/css" href="sidebar.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="balance.css"> <!-- CSS for styling -->
+    <link rel="stylesheet" href="balance.css">
 </head>
 <body>
 
@@ -119,17 +112,17 @@ if ($leaves_remaining < 0) {
                 </thead>
                 <tbody>
                     <tr>
-                        <td id="leaves-allowed"><?php echo $leaves_allowed; ?></td>  <!-- Allowed leaves -->
-                        <td id="leaves-taken"><?php echo $leaves_taken; ?></td>     <!-- Approved leaves -->
-                        <td id="pending-requests"><?php echo $pending_requests; ?></td> <!-- Pending requests -->
-                        <td id="incoming-leave"><?php echo $incoming_leave; ?></td> <!-- Incoming leaves -->
-                        <td id="leaves-remaining"><?php echo $leaves_remaining; ?></td>  <!-- Remaining leaves -->
+                        <td id="leaves-allowed"><?php echo $leaves_allowed; ?></td> 
+                        <td id="leaves-taken"><?php echo $leaves_taken; ?></td>    
+                        <td id="pending-requests"><?php echo $pending_requests; ?></td> 
+                        <td id="incoming-leave"><?php echo $incoming_leave; ?></td> 
+                        <td id="leaves-remaining"><?php echo $leaves_remaining; ?></td> 
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <script src="sidebar.js"></script> <!-- Sidebar JS -->
+    <script src="sidebar.js"></script> 
 </body>
 </html>

@@ -2,26 +2,22 @@
 session_start();
 include 'db_connection.php';
 
-// If the session is not set, redirect to login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Prevent caching of the page
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php"); // Redirect if not logged in
+    header("Location: login.php"); 
     exit();
 }
 
-$user_id = $_SESSION['user_id']; // Get user_id from session
+$user_id = $_SESSION['user_id']; 
 
-// Fetch employee ID using user_id
 $employeeQuery = "SELECT * FROM employees WHERE user_id = '$user_id'";
 $employeeResult = mysqli_query($conn, $employeeQuery);
 $employeeInfo = mysqli_fetch_assoc($employeeResult);
@@ -32,12 +28,12 @@ if (!$employeeInfo) {
 }
 
 // Store employee data in variables for easy access
-$employee_id = $employeeInfo['employee_id']; // Use correct column name
+$employee_id = $employeeInfo['employee_id']; 
 $employee_username = $employeeInfo['username'];
 $employee_email = $employeeInfo['email'];
 $employee_department = $employeeInfo['department'];
 $employee_position = $employeeInfo['position'];
-$employee_role = 'employee'; // Since this page is for employees
+$employee_role = 'employee'; 
 
 $updateSuccess = false;
 

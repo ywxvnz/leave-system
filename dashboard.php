@@ -1,23 +1,20 @@
 <?php
 session_start();
 
-// If the session is not set, redirect to login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Prevent caching of the page
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-// Handle the logout logic
 if (isset($_POST['logout'])) {
     if (session_status() === PHP_SESSION_ACTIVE) {
-        session_destroy(); // Destroy the session
+        session_destroy(); 
     }
-    header("Location: index.php?form=login"); // Redirect with form=login parameter
+    header("Location: index.php?form=login"); 
     exit();
 }
 ?>
@@ -84,7 +81,6 @@ if (isset($_POST['logout'])) {
             const noLogoutButton = document.getElementById('no-logout');
 
             noLogoutButton.addEventListener('click', function() {
-                // Redirect to the dashboard or home page
                 window.location.href = 'employee_dashboard.php';
             });
         });

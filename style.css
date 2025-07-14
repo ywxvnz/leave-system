@@ -38,7 +38,7 @@ label {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the start (left) */
+    align-items: flex-start;
     box-sizing: border-box;
 }
 
@@ -125,7 +125,7 @@ button:hover {
 .signup-container h1,
 .login-container h1,
 .forpass-container h1 {
-    margin-bottom: 10px; /* Adjust margin-bottom for h1 */
+    margin-bottom: 10px;
     font-size: 1.5em;
     text-align: center;
 }
@@ -133,13 +133,13 @@ button:hover {
 .signup-container p,
 .login-container p,
 .forpass-container p {
-    margin-top: 5px; /* Adjust margin-top for p */
+    margin-top: 5px; 
     font-size: 0.9em;
     color: #555;
 }
 
 a {
-    cursor: pointer; /* Ensure the links are clickable */
+    cursor: pointer; 
 }
 
 /* Employee Profile Specific Styles */

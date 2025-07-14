@@ -99,7 +99,7 @@
 }
 
 .sidebar.collapsed .sidebar-content {
-    display: none;  /* Remove content when collapsed */
+    display: none;  
     transition: width 0.3s ease-in-out;
 }
 

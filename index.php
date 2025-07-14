@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Default form is 'signup'
 $defaultForm = 'signup'; 
 if (isset($_GET['form'])) {
     $defaultForm = $_GET['form']; // 'signup', 'login', or 'forpass'

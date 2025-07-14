@@ -233,9 +233,9 @@
     text-align: center;
   }
 .selected-date {
-  background-color: #628B35; /* Example background color */
-  color: white; /* Text color */
-  border-radius: 50%; /* Optional: Make the selected date circular */
+  background-color: #628B35; 
+  color: white; 
+  border-radius: 50%;
 }
 .selected-date-display {
   font-weight: bold;

@@ -1,18 +1,15 @@
 <?php
 session_start();
 
-// If the session is not set, redirect to login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Prevent caching of the page
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -35,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         $email = $_POST['email'];
         $role = $_POST['role'];
 
-        // Get user ID from the employees table
         $sql = "SELECT user_id FROM employees WHERE employee_id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $employeeId);
@@ -229,7 +225,7 @@ $result = $conn->query($sql);
 
         .update-button:hover {
             background-color: #45a049;
-            z-index: 9999; /* Ensure the button appears on top */
+            z-index: 9999; 
         }
 
         .delete-button {
@@ -264,7 +260,6 @@ $result = $conn->query($sql);
 
             <div class="employee-profile" id="employee-profile" style="display: none;">
                 <div id="profile-content">
-                    <!-- Profile details will be loaded here via AJAX -->
                 </div>
             </div>
         </div>
@@ -319,7 +314,7 @@ $result = $conn->query($sql);
         let currentEmployeeId = null;
 
         function showProfile(employeeId) {
-            console.log("Clicked on employee:", employeeId); // Add this line for debugging
+            console.log("Clicked on employee:", employeeId); 
             currentEmployeeId = employeeId;
             const xhr = new XMLHttpRequest();
             xhr.open('GET', 'getProfile.php?employee_id=' + employeeId, true);
@@ -334,7 +329,7 @@ $result = $conn->query($sql);
                     updateButton.onclick = function() { showUpdateForm(employeeId); };
                     document.getElementById('profile-content').appendChild(updateButton);
 
-                    console.log("Adding update button");  // Add this log to check button creation
+                    console.log("Adding update button");  
                     document.getElementById('profile-content').appendChild(updateButton);
                     
                     const deleteButton = document.createElement('button');
